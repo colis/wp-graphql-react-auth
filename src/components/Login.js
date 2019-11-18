@@ -12,6 +12,7 @@ const LOGIN_MUTATION = gql`
       input: { clientMutationId: $clientMutationId, username: $username, password: $password }
     ) {
       authToken
+      refreshToken
     }
   }
 `;
