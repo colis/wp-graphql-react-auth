@@ -19,13 +19,16 @@ const UserDetails = () => {
   if (error) return <div>Error</div>;
 
   return (
-    <ul>
-      {Object.keys(data.viewer).map(key => (
-        <li key={key}>
-          {key}: <strong>{data.viewer[key]}</strong>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h4 className="mv3">User details</h4>
+      <ul>
+        {Object.keys(data.viewer).map(key => (
+          <li key={key}>
+            {key}: <strong>{data.viewer[key]}</strong>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
