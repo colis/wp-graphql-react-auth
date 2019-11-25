@@ -1,5 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+import '../styles/App.css';
+
 import Login from './Login';
 import UserPage from './UserPage';
 
