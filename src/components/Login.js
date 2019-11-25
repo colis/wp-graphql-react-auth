@@ -30,7 +30,8 @@ const Login = props => {
 
   return (
     <>
-      <div className="flex flex-column mt3">
+      <h4 className="mv3">Login</h4>
+      <div className="flex flex-column">
         <input
           className="mb2"
           value={username}
@@ -46,14 +47,16 @@ const Login = props => {
           placeholder="Choose a safe password"
         />
       </div>
-      <button
-        type="button"
-        onClick={() =>
-          sendLogin({ variables: { clientMutationId: 'getAuthToken', username, password } })
-        }
-      >
-        login
-      </button>
+      <div className="flex mt3">
+        <button
+          className="mr2 button"
+          onClick={() =>
+            sendLogin({ variables: { clientMutationId: 'getAuthToken', username, password } })
+          }
+        >
+          login
+        </button>
+      </div>
       {error && <p>Invalid username and/or password.</p>}
     </>
   );
