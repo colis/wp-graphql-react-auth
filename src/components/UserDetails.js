@@ -1,16 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
-const PROFILE_QUERY = gql`
-  query getViewer {
-    viewer {
-      id
-      username
-      email
-    }
-  }
-`;
+import { PROFILE_QUERY } from '../shared/queries';
 
 const UserDetails = () => {
   const { loading, data } = useQuery(PROFILE_QUERY);

@@ -1,21 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
-const LOGIN_MUTATION = gql`
-  mutation loginAndGetTokenAndUser(
-    $clientMutationId: String!
-    $username: String!
-    $password: String!
-  ) {
-    login(
-      input: { clientMutationId: $clientMutationId, username: $username, password: $password }
-    ) {
-      authToken
-      refreshToken
-    }
-  }
-`;
+import { LOGIN_MUTATION } from '../shared/queries';
 
 const Login = ({ history }) => {
   const [username, setUsername] = useState('');
