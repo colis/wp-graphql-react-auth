@@ -13,23 +13,28 @@ const PROFILE_QUERY = gql`
 `;
 
 const UserDetails = () => {
-  const { loading, error, data } = useQuery(PROFILE_QUERY);
+  const { loading, data } = useQuery(PROFILE_QUERY);
 
-  if (loading) return <div>Fetching</div>;
-  if (error) return <div>Error</div>;
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  return (
-    <>
-      <h4 className="mv3">User details</h4>
-      <ul>
-        {Object.keys(data.viewer).map(key => (
-          <li key={key}>
-            {key}: <strong>{data.viewer[key]}</strong>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+  if (data) {
+    return (
+      <>
+        <h4 className="mv3">User details</h4>
+        <ul>
+          {Object.keys(data.viewer).map(key => (
+            <li key={key}>
+              {key}: <strong>{data.viewer[key]}</strong>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
+
+  return <p>To view the content you must sign in.</p>;
 };
 
 export default UserDetails;
