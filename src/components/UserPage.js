@@ -6,7 +6,7 @@ const UserPage = props => {
 
   return (
     <>
-      <h1>User Page</h1>
+      <h4 className="mv3">User details</h4>
       {authToken ? (
         <>
           <UserDetails />
