@@ -30,15 +30,16 @@ const Login = props => {
 
   return (
     <>
-      <div>
-        <h1>Login</h1>
+      <div className="flex flex-column mt3">
         <input
+          className="mb2"
           value={username}
           onChange={e => setUsername(e.target.value)}
           type="text"
           placeholder="Your username"
         />
         <input
+          className="mb2"
           value={password}
           onChange={e => setPassword(e.target.value)}
           type="password"
