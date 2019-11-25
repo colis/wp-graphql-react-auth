@@ -17,14 +17,14 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-const Login = props => {
+const Login = ({ history }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const [sendLogin, { error }] = useMutation(LOGIN_MUTATION, {
     onCompleted({ login }) {
       localStorage.setItem('auth-token', login.authToken);
-      props.history.push('/');
+      history.push('/');
     },
   });
 

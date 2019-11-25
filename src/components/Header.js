@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-const Header = props => {
+const Header = ({ history }) => {
   const authToken = localStorage.getItem('auth-token');
 
   const logoutHandler = event => {
     if (event.type === 'click' || (event.type === 'keydown' && event.keyCode === 13)) {
       localStorage.removeItem('auth-token');
-      props.history.push('/');
+      history.push('/');
     }
   };
 
