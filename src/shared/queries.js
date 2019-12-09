@@ -24,3 +24,13 @@ export const LOGIN_MUTATION = gql`
     }
   }
 `;
+
+export const REFRESH_TOKEN_MUTATION = gql`
+  mutation refreshToken($jwtRefreshToken: String!, $clientMutationId: String!) {
+    refreshJwtAuthToken(
+      input: { clientMutationId: $clientMutationId, jwtRefreshToken: $jwtRefreshToken }
+    ) {
+      authToken
+    }
+  }
+`;
