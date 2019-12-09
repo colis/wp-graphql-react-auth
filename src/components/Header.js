@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { useQuery } from '@apollo/react-hooks';
-
-import { PROFILE_QUERY } from '../shared/queries';
 
 const Header = () => {
   const authToken = localStorage.getItem('auth-token');
-
-  const { client } = useQuery(PROFILE_QUERY);
 
   const logoutHandler = event => {
     if (event.type === 'click' || (event.type === 'keydown' && event.keyCode === 13)) {
       localStorage.removeItem('auth-token');
       localStorage.removeItem('refresh-token');
-      client.resetStore();
+      window.location.reload(false);
     }
   };
 
