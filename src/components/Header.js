@@ -13,6 +13,7 @@ const Header = () => {
   const logoutHandler = event => {
     if (event.type === 'click' || (event.type === 'keydown' && event.keyCode === 13)) {
       localStorage.removeItem('auth-token');
+      localStorage.removeItem('refresh-token');
       client.resetStore();
     }
   };

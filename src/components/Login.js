@@ -10,6 +10,7 @@ const Login = ({ history }) => {
   const [sendLogin, { error }] = useMutation(LOGIN_MUTATION, {
     onCompleted({ login }) {
       localStorage.setItem('auth-token', login.authToken);
+      localStorage.setItem('refresh-token', login.refreshToken);
       history.push('/');
     },
   });
